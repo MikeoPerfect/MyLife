@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MikeoPerfect's Life</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--站标-->
+  <link rel="icon" href="https://blog.mikeoperfect.com/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  
+  <!--主题-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/vue.css">  
+
+  <!--添加侧边栏目录-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />
+
+  <!--添加页内目录-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/fontawesome.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/solid.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-jx-toc/dist/jx-toc.css">
+
+
+</head>
+<body>
+  <nav>
+    <a href="#/">EN</a>
+    <a href="#/">中文</a>
+  </nav>
+  <div id="app">Loading...</div>
+  <script>
+    window.$docsify = {
+      logo: '/_media/favicon.ico',
+      name: 'MikeoPerfect',
+      // repo: 'https://github.com/MikeoPerfect/mylife.git',
+      formatUpdated: "{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}",
+
+      loadSidebar: true,
+      subMaxLevel: 2,
+      
+      maxLevel: 2,
+      auto2top: true,
+      coverpage: true,
+      nameLink: '/',
+     
+      alias: {
+      '/.*/_sidebar.md': '/_sidebar.md'
+    },
+
+
+    pagination: {
+      previousText: '上一篇',
+      nextText: '下一篇',
+    },
+    // themeColor: '#c30aff',
+    externalLinkTarget: '_blank',
+    homepage: 'README.md', //设置主页
+    notFoundPage: '404.md',  //404
+
+   jxtoc: {
+      headings: "h1, h2, h3, h4, h5, h6",
+  },
+
+    //插件, 抬头和结尾
+    plugins: [
+    function(hook, vm) {
+      hook.beforeEach(function(html) {
+        var url =
+          'https://github.com/mikeoperfect/mylife/blob/main/docs/' +
+          vm.route.file;
+        var editHtml = '[📝 Edit](' + url + ')\n';
+        var afterHTML  = '<span>本文作者：<a href="mailto:davonxu@outlook.com">MikeoPerfect</a><br></span>'+ '<span>版权声明：<a href="http://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 国际许可协议</a></span>';
+        return (
+          editHtml +
+          html +
+          '\n' +
+          '\n' +  '<br><br><br><br><br><br>' +afterHTML+  '<br>' +
+          '<br> &#x2705; Last modified {docsify-updated} '
+        );
+      });
+    },
+    function(hook, vm) {
+      
+      var footer = [
+        '<hr/>',
+        '<footer>',
+        '<span>Copyright &copy;2021 By <a href="https://github.com/mikeoperfect">MikeoPerfect. </a></span>',
+        '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
+        '</footer>'
+      ].join('');
+
+      hook.afterEach(function(html) {
+        return html  + footer;
+      });
+    }
+  ]
+
+
+  }
+
+  </script>
+
+
+  <!-- Docsify v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/docsify-jx-toc/dist/jx-toc.js"></script>
+
+
+
+</body>
+</html>
